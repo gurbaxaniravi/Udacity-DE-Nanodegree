@@ -18,4 +18,5 @@ event_data/2018-11-09-events.csv
 
 <b>Visual Representation of the Project:</b>
 
-![Project Visualization](images/Project_Visualization.png)
+
+![Project Visualizatio](images/Project_Visualization.png)
