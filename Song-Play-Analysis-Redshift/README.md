@@ -26,5 +26,5 @@ The flow of the whole project can be summarized as
 
 
 
-![Project Flow](images/Project_Flow.png)
+![Project Flo](images/Project_Flow.png)
 
