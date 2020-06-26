@@ -67,14 +67,14 @@ songplay_table_create = ("""
 CREATE TABLE IF NOT EXISTS fact_songplay
 (
 songplay_id          INTEGER IDENTITY(0,1) PRIMARY KEY sortkey,
-start_time           TIMESTAMP,
-user_id              INTEGER,
-level                VARCHAR,
-song_id              VARCHAR,
-artist_id            VARCHAR,
-session_id           INTEGER,
-location             VARCHAR,
-user_agent           VARCHAR
+start_time           TIMESTAMP NOT NULL,
+user_id              INTEGER NOT NULL,
+level                VARCHAR NOT NULL,
+song_id              VARCHAR NOT NULL,
+artist_id            VARCHAR NOT NULL,
+session_id           INTEGER NOT NULL,
+location             VARCHAR NULL,
+user_agent           VARCHAR NULL
 );
 """)
 
@@ -156,7 +156,8 @@ SELECT DISTINCT to_timestamp(to_char(se.ts, '9999-99-99 99:99:99'),'YYYY-MM-DD H
                 se.location as location,
                 se.userAgent as user_agent
 FROM staging_events se
-JOIN staging_songs ss ON se.song = ss.title AND se.artist = ss.artist_name;
+JOIN staging_songs ss ON se.song = ss.title AND se.artist = ss.artist_name
+WHERE se.page = 'NextSong';
 """)
 
 user_table_insert = ("""
@@ -167,7 +168,7 @@ SELECT DISTINCT userId as user_id,
                 gender as gender,
                 level as level
 FROM staging_events
-where userId IS NOT NULL;
+where userId IS NOT NULL AND page = 'NextSong';
 """)
 
 song_table_insert = ("""
