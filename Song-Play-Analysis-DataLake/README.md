@@ -24,3 +24,21 @@ The diagram below depicts the project flow:
 The diagram below depicts the ERD would appear after project is successfully executed:
 
 ![Project Flow](images/Song_ERD.png)
+
+## Files in the repository
+The project template includes three files:
+
+**etl.py** reads data from S3, processes that data using Spark, and writes them back to S3<br>
+**dl.cfgcontains** your AWS credentials. This file is not checked in as it contains AWS keys, but the format of the file is as follows<br>
+<pre><code>[AWS]
+AWS_ACCESS_KEY_ID= 
+AWS_SECRET_ACCESS_KEY=</code></pre>
+**README.md** provides discussion on your process and decisions<br>
+
+## Project Execution
+The project is executed with the following command
+
+<pre><code>spark-submit --master yarn etl.py</code></pre>
+
+**Note**: The project assumes you have a perfectly well setup Hadoop cluster with Spark Up and Running. The cluster could be EMR, Cloudera, Databricks HDInsight or Dataproc.<br>
+Also the project assumes dl.cfg is the current path
