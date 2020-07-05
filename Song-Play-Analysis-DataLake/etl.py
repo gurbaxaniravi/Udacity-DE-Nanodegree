@@ -39,7 +39,7 @@ def process_song_data(spark, input_data, output_data):
 
     # extract columns to create songs table
     songs_table = spark.sql("""
-                            SELECT sdtn.song_id, 
+                            SELECT DISTINCT sdtn.song_id, 
                             sdtn.title,
                             sdtn.artist_id,
                             sdtn.year,
