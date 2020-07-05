@@ -19,3 +19,8 @@ You'll be working with two datasets that reside in S3. Here are the S3 links for
 The diagram below depicts the project flow:
 
 ![Project Flow](images/Data-Lake-Flow.png)
+
+## ERD after successful execution of the Project
+The diagram below depicts the ERD would appear after project is successfully executed:
+
+![Project Flow](images/Song_ERD.png)
